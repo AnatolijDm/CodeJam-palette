@@ -131,9 +131,9 @@ function pencilOn() {
         ctx.lineWidth = 10;
         ctx.lineCap = 'round';
         ctx.strokeStyle = color;
-        ctx.lineTo(e.pageX - 480, e.pageY - 84);
+        ctx.lineTo(e.offsetX, e.offsetY);
         ctx.stroke();
-        ctx.moveTo(e.pageX - 480, e.pageY - 84);
+        ctx.moveTo(e.offsetX, e.offsetY);
     }
     
     canvas.addEventListener('mousedown', startPosition);
