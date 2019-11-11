@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 const curClr = document.querySelector('#curColor');
 const prevClr = document.querySelector('#prevColor');
 
-var color;
+let color;
 
 let colorSave = [];
 
@@ -55,12 +55,14 @@ document.getElementById('gray').addEventListener('click', function() {
     colorSave.push('gray');
     prevClr.style.background = colorSave[colorSave.length - 2];
 })
-document.getElementById('prevColor').addEventListener('click', function(color) {
+document.getElementById('prevColor').addEventListener('click', function() {
     color = prevClr.style.background;
     curClr.style.background = color;
     colorSave.push(color);
     prevClr.style.background = colorSave[colorSave.length - 2];
 })
+
+console.log(color);
 
 document.getElementById('choose_color').addEventListener('click', function() {
     chsColorOn();
