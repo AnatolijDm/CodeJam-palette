@@ -4,8 +4,42 @@ const curClr = document.querySelector('#curColor');
 
 var color;
 
+
+document.getElementById('choose_color').addEventListener('click', function() {
+    chsColorOn();
+})
 var i = 0;
-document.getElementById('choose_color').addEventListener('click', function() {   
+var a = 0;
+var b = 0;
+var enabled;
+
+function slider() {
+    if(i === 0) {
+        enabled = true;
+        i = 1;
+    }
+    else if(i === 1) {
+        enabled = false;
+        i = 0;
+    }
+}
+document.getElementById('pencil').addEventListener('click', function() {
+   slider();
+    if(enabled) {
+        pencilOn();
+    }
+});
+
+document.addEventListener('keypress', function(event) {        
+    if(event.code == 'KeyP') {
+        slider();
+        if(enabled) {
+            pencilOn();
+        }
+    }
+})
+
+function chsColorOn() {   
     const colColor = document.querySelector('.color_column');                
         if(i === 0) {
             colColor.style.display = 'flex';
@@ -15,7 +49,7 @@ document.getElementById('choose_color').addEventListener('click', function() {
             colColor.style.display = 'none';
             i = 0;
         }
-})
+}
 
 document.getElementById('green').addEventListener('click', function() {
     color = 'green';
@@ -50,10 +84,7 @@ document.getElementById('gray').addEventListener('click', function() {
     curClr.style.background = color;
 })
 
-
-
-
-document.getElementById('pencil').addEventListener('click', function() {
+function pencilOn() {
     const pen = document.querySelector('#pencil');
     pen.style.color = 'black';
     pen.style.fontWeight = 'bold';
@@ -72,9 +103,7 @@ document.getElementById('pencil').addEventListener('click', function() {
         painting = false;
         ctx.beginPath();
     }
-    
-    
-    
+        
     function draw(e) {
         if (!painting) return;
         ctx.lineWidth = 10;
@@ -88,5 +117,11 @@ document.getElementById('pencil').addEventListener('click', function() {
     canvas.addEventListener('mousedown', startPosition);
     canvas.addEventListener('mouseup', endPosition);
     canvas.addEventListener('mousemove', draw);
+}
+
+document.addEventListener('keypress', function(event) {        
+    if(event.code == 'KeyC') {
+        chsColorOn();
+    }
 })
 
