@@ -1,16 +1,71 @@
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
 const curClr = document.querySelector('#curColor');
+const prevClr = document.querySelector('#prevColor');
 
 var color;
 
+let colorSave = [];
+
+document.getElementById('green').addEventListener('click', function() {
+    color = 'green';
+    curClr.style.background = color;
+    colorSave.push('green');
+    prevClr.style.background = colorSave[colorSave.length - 2];
+})
+document.getElementById('red').addEventListener('click', function() {
+    color = 'red';
+    curClr.style.background = color;
+    colorSave.push('red');
+    prevClr.style.background = colorSave[colorSave.length - 2];
+})
+document.getElementById('yellow').addEventListener('click', function() {
+    color = 'yellow';
+    curClr.style.background = color;
+    colorSave.push('yellow');
+    prevClr.style.background = colorSave[colorSave.length - 2];
+})
+document.getElementById('blue').addEventListener('click', function() {
+    color = 'blue';
+    curClr.style.background = color;
+    colorSave.push('blue');
+    prevClr.style.background = colorSave[colorSave.length - 2];
+})
+document.getElementById('black').addEventListener('click', function() {
+    color = 'black';
+    curClr.style.background = color;
+    colorSave.push('black');
+    prevClr.style.background = colorSave[colorSave.length - 2];
+})
+document.getElementById('white').addEventListener('click', function() {
+    color = 'white';
+    curClr.style.background = color;
+    colorSave.push('white');
+    prevClr.style.background = colorSave[colorSave.length - 2];
+})
+document.getElementById('orange').addEventListener('click', function() {
+    color = 'orange';
+    curClr.style.background = color;
+    colorSave.push('orange');
+    prevClr.style.background = colorSave[colorSave.length - 2];
+})
+document.getElementById('gray').addEventListener('click', function() {
+    color = 'gray';
+    curClr.style.background = color;
+    colorSave.push('gray');
+    prevClr.style.background = colorSave[colorSave.length - 2];
+})
+document.getElementById('prevColor').addEventListener('click', function(color) {
+    color = prevClr.style.background;
+    curClr.style.background = color;
+    colorSave.push(color);
+    prevClr.style.background = colorSave[colorSave.length - 2];
+})
 
 document.getElementById('choose_color').addEventListener('click', function() {
     chsColorOn();
 })
 var i = 0;
-var a = 0;
-var b = 0;
 var enabled;
 
 function slider() {
@@ -50,39 +105,6 @@ function chsColorOn() {
             i = 0;
         }
 }
-
-document.getElementById('green').addEventListener('click', function() {
-    color = 'green';
-    curClr.style.background = color;
-})
-document.getElementById('red').addEventListener('click', function() {
-    color = 'red';
-    curClr.style.background = color;
-})
-document.getElementById('yellow').addEventListener('click', function() {
-    color = 'yellow';
-    curClr.style.background = color;
-})
-document.getElementById('blue').addEventListener('click', function() {
-    color = 'blue';
-    curClr.style.background = color;
-})
-document.getElementById('black').addEventListener('click', function() {
-    color = 'black';
-    curClr.style.background = color;
-})
-document.getElementById('white').addEventListener('click', function() {
-    color = 'white';
-    curClr.style.background = color;
-})
-document.getElementById('orange').addEventListener('click', function() {
-    color = 'orange';
-    curClr.style.background = color;
-})
-document.getElementById('gray').addEventListener('click', function() {
-    color = 'gray';
-    curClr.style.background = color;
-})
 
 function pencilOn() {
     const pen = document.querySelector('#pencil');

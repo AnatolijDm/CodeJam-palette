@@ -121,10 +121,17 @@ h1 {
           flex-direction: row;
 }
 
-#curColor {
+#prevColor {
   border: 1px solid black;
   height: 15px;
   width: 15px;
   margin-right: 10px;
+}
+
+#curColor {
+  border: 1px solid black;
+  height: 15px;
+  width: 15px;
+  margin-left: 10px;
 }
 /*# sourceMappingURL=style.css.map */
